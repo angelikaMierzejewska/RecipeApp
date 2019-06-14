@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row mt-5">
+    <form>
+      <div class="form-group">
+        <label class="mr-4">Ingredients</label>
+        <input #search id="search" (input)="searchByIngredient(search.value)" />
+        <label class="mx-4">Dish</label>
+        <input
+          #searchBox
+          id="search-box"
+          (input)="searchByDish(searchBox.value)"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 d-flex my-4" *ngFor="let recipe of recipes">
+      <div *ngIf="recipe.thumbnail" class="card-image mr-4 ">
+        <img
+          class="card-img"
+          src="{{ recipe.thumbnail }}"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="card border-0 ">
+        <div class="card-content">
+          <h5 class="card-title">{{ recipe.title }}</h5>
+          <p>{{ recipe.ingredients }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ recipe.href }}">Show </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
